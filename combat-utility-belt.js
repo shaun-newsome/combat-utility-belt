@@ -498,6 +498,23 @@ class CUBHideNPCNames {
         });
     }
 
+    /**
+     * Hook on render of image popout to replace NPC names in title
+     */
+    _hookOnRenderImagePopOut() {
+        Hooks.on("renderImagePopout", (app, html, data) => {
+            if(game.user.isGM || !this.settings.hideNames) { return }
+
+            //get an array of NPC actors
+            const npcActors = game.actors.entities.filter(a => a.isPC == false);
+            const 
+
+            for(let a of npcActors) {
+                
+            }
+        })
+    }
+
     _switchTabs() {
         const currentTab = ui.sidebar.tabs.tabs.find(".active");
         const chatTab = ui.sidebar.tabs.tabs.find('[data-tab="chat"]');
